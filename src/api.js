@@ -1,17 +1,30 @@
 import axios from 'axios';
 
-const searchImages = async (term) => {
-    const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
+const searchImages = async (query, page) => {
+    const {data: response} = await axios.get('https://api.unsplash.com/search/photos', {
         headers: {
             Authorization: `Client-ID ${accessKey}`
         },
         params: {
-            query: term,
+            // page: page,
+            query: query
         }
     });
-    return response.data.results;
-}
+    return response.results;
+};
 
-export default searchImages;
+const getImages = async (page) => {
+    const {data: response} = await axios.get('https://api.unsplash.com/photos', {
+        headers: {
+            Authorization: `Client-ID ${accessKey}`
+        },
+        params: {
+            // page: page,
+        }
+    });
+    return response.results;
+};
+
+export { searchImages, getImages };
