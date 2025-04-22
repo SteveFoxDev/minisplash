@@ -1,19 +1,20 @@
 import { useState } from 'react';
-
+import useImagesContext from './hooks/use-images-context';
 import './SearchBar.css';
 
-const SearchBar = ({onSubmit}) => {
+const SearchBar = () => {
+    const { handleSubmit } = useImagesContext();
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
-    }
+    };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        onSubmit(searchTerm);
+        handleSubmit(searchTerm);
         setSearchTerm('');
-    }
+    };
     
     return <div className="search-bar__container">
         <form onSubmit={handleFormSubmit} action="" className="search-bar__form">

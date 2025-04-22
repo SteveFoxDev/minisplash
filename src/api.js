@@ -8,12 +8,13 @@ const searchImages = async (query, page) => {
             Authorization: `Client-ID ${accessKey}`
         },
         params: {
-            // page: page,
+            page: page,
             query: query
         }
     });
     return response.results;
 };
+
 
 const getImages = async (page) => {
     const {data: response} = await axios.get('https://api.unsplash.com/photos', {
@@ -21,10 +22,10 @@ const getImages = async (page) => {
             Authorization: `Client-ID ${accessKey}`
         },
         params: {
-            // page: page,
+            page: page,
         }
     });
-    return response.results;
+    return response;
 };
 
 export { searchImages, getImages };

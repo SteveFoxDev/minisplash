@@ -1,33 +1,18 @@
-import { useState } from 'react';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
-import { searchImages, getImages } from './api';
-import './App.css'
+import ImageList from './components/ImageList';
 
-function App() {  
-  const [query , setQuery ] = useState('');
-  const [images , setImages ] = useState([]);
-  
+import './App.css';
 
-  const handleSubmit = async (searchTerm) => {
-    if(searchTerm) {
-      setQuery(searchTerm);
-      const result = await searchImages(query);
-      setImages(result);
-    } else {
-      setQuery('');
-      const result = await getImages();
-      setImages(result);
-    }
-  };
-
-  console.log(images);
-
+function App() {
   return (
     <div>
-      <Header ><SearchBar onSubmit={handleSubmit} /></Header>
+      <Header>
+        <SearchBar />
+      </Header>
+      <ImageList />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
