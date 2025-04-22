@@ -5,13 +5,12 @@ import ImageList from './components/ImageList';
 import './sass/main.scss';
 
 function App() {
-
   return (
     <>
       <Header>
         <SearchBar />
       </Header>
-      <ImageList  />
+      <ImageList />
     </>
   );
 }

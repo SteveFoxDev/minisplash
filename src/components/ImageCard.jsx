@@ -10,13 +10,13 @@ const ImageCard = ({ image, className }) => {
 
   return (
     <>
-        {showModal && <Modal image={image} onCancel={onCancel}></Modal>}
-        <img
-          className={`image-card__img ${className}`}
-          onClick={handleOpenModal}
-          src={image.urls.small}
-          alt={image.alt_description}
-        />
+      {showModal && <Modal image={image} onCancel={onCancel}></Modal>}
+      <img
+        className={`image-card__img ${className}`}
+        onClick={handleOpenModal}
+        src={image.urls.small}
+        alt={image.alt_description}
+      />
     </>
   );
 };

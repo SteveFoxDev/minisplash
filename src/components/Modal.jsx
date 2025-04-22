@@ -8,10 +8,14 @@ const Modal = ({ onCancel, image }) => {
       <div className='modal'>
         <div className='modal-header'>
           <h2 className='modal-title'>Photo by: {image.user.name}</h2>
-          <a className='modal-btn' onClick={onCancel} ></a>
+          <a className='modal-btn' onClick={onCancel}></a>
         </div>
         <div className='modal-body'>
-            <img className='modal-img' src={image.urls.regular} alt={image.alt_description} />
+          <img
+            className='modal-img'
+            src={image.urls.regular}
+            alt={image.alt_description}
+          />
         </div>
       </div>
     </>
