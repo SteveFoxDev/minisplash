@@ -1,0 +1,15 @@
+.header {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    align-items: center;
+
+    &__logo {
+        margin: 0 4rem;
+        font-size: 5rem;
+        &--span {
+            color: #1E90FF;
+            font-family: var(--font-secondary);
+        }
+    }
+
+}

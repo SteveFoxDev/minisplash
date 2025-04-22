@@ -6,8 +6,9 @@ const ImagesContext = createContext();
 function Provider({children}) {
     const [query, setQuery] = useState();
     const [images, setImages] = useState([]);
-    const [page, setPage] = useState(1); // start page count at 1, because it is the first batch
+    const [page, setPage] = useState(1); // start page count at 1 to fetch first page of 10
     const [hasMore, setHasMore] = useState(true);
+    const [errors , setErrors] = useState();
 
     // fetchImages() checks if a query is set.  If so it makes a get request with the query.
     // then it sets hasMore based on the result, and pushes the next page of images onto state.
@@ -30,7 +31,7 @@ function Provider({children}) {
           }
           setPage(p => p + 1); //increment page count
         } catch (error) {
-        console.log(error);
+          setErrors(error);
         } 
       };
       // Handle Submit comes from the SearchBar Component. It sets the query with the search term, and returns the first 10 images.
@@ -48,6 +49,7 @@ function Provider({children}) {
       const valuesToShare = {
         images,
         hasMore,
+        errors,
         fetchImages,
         handleSubmit,
       };

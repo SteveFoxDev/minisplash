@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import useImagesContext from './hooks/use-images-context';
-import './SearchBar.css';
+import { IoMdSearch } from "react-icons/io";
+import useImagesContext from '../hooks/use-images-context';
+import './SearchBar.scss';
 
 const SearchBar = () => {
     const { handleSubmit } = useImagesContext();
@@ -16,10 +17,10 @@ const SearchBar = () => {
         setSearchTerm('');
     };
     
-    return <div className="search-bar__container">
+    return <div className="search-bar">
         <form onSubmit={handleFormSubmit} action="" className="search-bar__form">
             <input value={searchTerm} onChange={handleChange} type="text" className="search-bar__input" placeholder='Search Photos'/>
-            <button onSubmit={handleFormSubmit}>search</button>
+            <button className='search-bar__btn' onSubmit={handleFormSubmit}><IoMdSearch className='search-bar__icon' /></button>
         </form>
     </div>
 }

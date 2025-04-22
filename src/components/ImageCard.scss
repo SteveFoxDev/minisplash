@@ -1,0 +1,13 @@
+.image-card {
+
+     &__img {
+        padding-bottom: 1rem;
+        display: block;
+        width: 100%;
+        cursor: zoom-in;
+
+        &:hover {
+         filter: brightness(70%);
+        }
+     }
+}

@@ -2,16 +2,17 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import ImageList from './components/ImageList';
 
-import './App.css';
+import './sass/main.scss';
 
 function App() {
+
   return (
-    <div>
+    <>
       <Header>
         <SearchBar />
       </Header>
-      <ImageList />
-    </div>
+      <ImageList  />
+    </>
   );
 }
 
